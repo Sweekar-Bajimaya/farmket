@@ -32,7 +32,7 @@ export default function HomeFooterSection() {
         </div>
       </div>
       <div className="max-w-6xl mx-auto px-4 mt-8 flex justify-between text-xs text-gray-400">
-        <span>© 2024 Farmket Technologies Inc. All rights reserved.</span>
+        <span>© 2025 Farmket Technologies Inc. All rights reserved.</span>
         <span>Privacy Policy &nbsp; Terms of Service</span>
       </div>
     </footer>

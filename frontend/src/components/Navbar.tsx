@@ -29,7 +29,7 @@ export default function Navbar() {
     };
 
     return (
-        <nav className="w-full shadow flex items-center justify-between px-46 py-4">
+        <nav className="w-full shadow flex items-center justify-between px-50 py-4">
             {/* Logo */}
             <div className="flex items-center">
                 <Link href="/" className="text-2xl font-bold text-[#0F172A]">
