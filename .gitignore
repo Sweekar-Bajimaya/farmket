@@ -1,0 +1,40 @@
+# Python virtual environment
+.venv/
+venv/
+env/
+ENV/
+
+# Python compiled files
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+*.so
+
+# Django
+*.log
+*.pot
+db.sqlite3
+db.sqlite3-journal
+/media
+/staticfiles
+/static
+
+# Node modules
+node_modules/
+*/node_modules/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment variables
+.env
+.env.local
