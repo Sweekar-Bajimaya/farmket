@@ -1,9 +1,9 @@
 
-import HomeHeroSection from "./home-hero-section";
-import HomeCategorySection from "./home-category-section";
-import HomeBestSellerSection from "./home-best-seller-section";
-import HomeHighlightedFeaturesSection from "./home-highlighted-features-section";
-import HomeFooterSection from "./home-footer-section";
+import HomeHeroSection from "../components/home/HeroSection";
+import HomeCategorySection from "../components/home/CategorySection";
+import HomeBestSellerSection from "../components/home/BestSellerSection";
+import HomeHighlightedFeaturesSection from "../components/home/HighlightedFeatures";
+import HomeFooterSection from "../components/layout/Footer";
 
 export default function Home() {
   return (

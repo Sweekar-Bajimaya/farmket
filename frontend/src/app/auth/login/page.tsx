@@ -33,7 +33,6 @@ export default function LoginPage() {
             const data = await response.json();
 
             if (!response.ok) {
-                const data = await response.json();
                 throw new Error(data.detail || data.non_field_errors?.[0] || "Login failed");
             }
             localStorage.setItem('access_token', data.access);
