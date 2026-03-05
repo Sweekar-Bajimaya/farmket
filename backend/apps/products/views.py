@@ -1,14 +1,21 @@
 from rest_framework import generics
 from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework.pagination import PageNumberPagination
 from .models import Product, ProductImage, Category
 from .serializers import ProductSerializer, ProductImageSerializer, CategorySerializer
 from rest_framework.permissions import AllowAny
 
 # Create your views here.
+class ProductPagination(PageNumberPagination):
+    page_size = 6
+    page_size_query_param = 'page_size'
+    max_page_size = 100
+    
 class ProductListViewSet(generics.ListAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
     filter_backends = [DjangoFilterBackend]
+    pagination_class = ProductPagination
     filterset_fields = ['category__slug', 'status', 'is_featured', 'seller']
     permission_classes = [AllowAny]
     

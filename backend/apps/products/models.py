@@ -88,7 +88,7 @@ class Product(models.Model):
     
     stock_quantity = models.PositiveIntegerField(default=0, db_index=True)
     unit = models.CharField(max_length=MAX_UNIT_LENGTH, choices=UNIT_TYPE_CHOICES, default=UNIT_KG)
-    sku = models.CharField(max_length=MAX_SKU_LENGTH, unique=True, db_index=True)
+    sku = models.CharField(max_length=MAX_SKU_LENGTH)
     status = models.CharField(max_length=20, choices=PRODUCT_STATUS_CHOICES, default=STATUS_AVAILABLE, db_index=True)
     is_featured = models.BooleanField(default=False, db_index=True)
     
@@ -117,7 +117,11 @@ class Product(models.Model):
             models.Index(fields=['seller']),
             models.Index(fields=['total_sold']),
             models.Index(fields=['average_rating']),
-        ]   
+            models.Index(fields=['sku']),
+        ]
+        constraints = [
+            models.UniqueConstraint(fields=['seller', 'sku'], name='unique_sku_per_seller'),
+        ]
     
     def __str__(self):
         return f"{self.name} - {self.seller.business_name}"

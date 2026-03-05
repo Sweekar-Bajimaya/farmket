@@ -39,7 +39,7 @@ export default function Navbar() {
             {/* Navigation Links */}
             <div className="flex items-center gap-8">
                 <Link href="/" className="text-lg text-gray-700 hover:text-green-700">Shop</Link>
-                <Link href="/about" className="text-lg text-gray-700 hover:text-green-700">Categories</Link>
+                <Link href="/products" className="text-lg text-gray-700 hover:text-green-700">Products</Link>
                 <Link href="/offers" className="text-lg text-gray-700 hover:text-green-700">Deals</Link>
                 {/* Search, Cart, User/Login */}
                 <div className="flex items-center gap-3">
