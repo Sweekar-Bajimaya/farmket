@@ -8,6 +8,7 @@ import ProductImageGallery from '@/components/products/ProductImageGallery';
 import ProductInfo from '@/components/products/ProductInfo';
 import CustomerReviews from '@/components/products/CustomerReviews';
 import RelatedProducts from '@/components/products/RelatedProducts';
+import Error404Page from '@/app/error_404_page';
 
 interface ProductImage {
   id: number;
@@ -121,19 +122,7 @@ export default function ProductDetailPage() {
 
   if (error || !product) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <div className="text-center">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">
-            {error || 'Product not found'}
-          </h2>
-          <Link
-            href="/products"
-            className="text-green-600 hover:text-green-700 font-semibold"
-          >
-            ← Back to Products
-          </Link>
-        </div>
-      </div>
+      <Error404Page errorText="Product Not Found" />
     );
   }
 

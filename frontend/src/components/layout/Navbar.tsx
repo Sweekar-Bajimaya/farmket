@@ -29,10 +29,10 @@ export default function Navbar() {
     };
 
     return (
-        <nav className="w-full shadow flex items-center justify-between px-50 py-4">
+        <nav className="w-full shadow flex items-center justify-between px-38 py-4">
             {/* Logo */}
             <div className="flex items-center">
-                <Link href="/" className="text-2xl font-bold text-[#0F172A]">
+                <Link href="/" className="text-2xl font-bold text --primary-dark">
                     Farmket
                 </Link>
             </div>
@@ -76,7 +76,7 @@ export default function Navbar() {
                                 <span className="text-gray-700">{user?.first_name || user?.username || 'User'}</span>
                             </div>
                             {/* Dropdown menu */}
-                            <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 hidden group-hover:block z-50">
+                            <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 hidden group-hover:block group-focus-within:block hover:block z-50">
                                 <Link href="/profile" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                                     Profile
                                 </Link>
