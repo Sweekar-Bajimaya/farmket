@@ -25,4 +25,16 @@ class ProductListViewSet(generics.ListAPIView):
         if category_slug:
             queryset = queryset.filter(category__slug=category_slug)
         return queryset
+
+class ProductDetailView(generics.RetrieveAPIView):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
+    permission_classes = [AllowAny]
+    lookup_field = 'slug'
+    
+class CategoryListView(generics.ListAPIView):
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializer
+    permission_classes = [AllowAny]
+    pagination_class = None
         

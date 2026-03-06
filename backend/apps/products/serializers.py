@@ -22,6 +22,7 @@ class CategorySerializer(serializers.ModelSerializer):
         
 class ProductSerializer(serializers.ModelSerializer):
     images = ProductImageSerializer(many=True, read_only=True)
+    seller = serializers.CharField(source='seller.business_name', read_only=True)
     category = CategorySerializer(read_only=True)
     discount_percentage = serializers.FloatField(read_only=True)
     final_price = serializers.FloatField(read_only=True)
@@ -30,7 +31,7 @@ class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
         fields = [
-            'id', 'name', 'slug', 'description', 'category', 'price', 'discount_price',
+            'id', 'name', 'seller', 'slug', 'description', 'category', 'price', 'discount_price',
             'discount_percentage', 'final_price', 'stock_quantity', 'unit', 'sku',
             'status', 'is_featured', 'average_rating', 'total_reviews', 'total_sold',
             'images', 'is_in_stock', 'created_at', 'updated_at'
