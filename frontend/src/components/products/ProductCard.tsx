@@ -20,6 +20,7 @@ interface Product {
   slug: string;
   description: string;
   category: Category;
+  seller: string;
   price: string;
   discount_price: string | null;
   discount_percentage: number;

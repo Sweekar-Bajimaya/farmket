@@ -24,6 +24,7 @@ interface Product {
   slug: string;
   description: string;
   category: Category;
+  seller: string;
   price: string;
   discount_price: string | null;
   discount_percentage: number;
@@ -102,7 +103,7 @@ export default function ProductsPage() {
 
   const fetchCategories = async () => {
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api'}/categories/`);
+      const response = await fetch(API_ENDPOINTS.category);
       const data = await response.json();
       setCategories(data);
     } catch (error) {

@@ -27,6 +27,7 @@ interface Product {
   slug: string;
   description: string;
   category: Category;
+  seller: string;
   price: string;
   discount_price: string | null;
   discount_percentage: number;
@@ -63,25 +64,21 @@ export default function ProductDetailPage() {
       setLoading(true);
       setError(null);
 
-      // Fetch all products and find by slug (since API might not have detail endpoint)
-      const response = await fetch(API_ENDPOINTS.product);
-      const data = await response.json();
+      // Fetch product by slug using detail endpoint
+      const response = await fetch(API_ENDPOINTS.productDetail(slug));
       
-      // Handle paginated response
-      const products = data.results || data;
-      const foundProduct = products.find((p: Product) => p.slug === slug);
-
-      if (!foundProduct) {
+      if (!response.ok) {
         setError('Product not found');
         setLoading(false);
         return;
       }
-
+      
+      const foundProduct = await response.json();
       setProduct(foundProduct);
 
       // Fetch related products from the same category
       const relatedResponse = await fetch(
-        `${API_ENDPOINTS.product}?category=${foundProduct.category.slug}`
+        `${API_ENDPOINTS.product}?category=${foundProduct.category.slug}&page_size=5`
       );
       const relatedData = await relatedResponse.json();
       const relatedProductsList = relatedData.results || relatedData;
@@ -168,6 +165,7 @@ export default function ProductDetailPage() {
             <ProductInfo
               name={product.name}
               category={product.category}
+              seller={product.seller}
               price={product.price}
               final_price={product.final_price}
               discount_price={product.discount_price}

@@ -7,6 +7,8 @@ export const API_ENDPOINTS = {
     changePassword: `${API_BASE_URL}/users/change-password/`,
     passwordReset: `${API_BASE_URL}/users/password-reset/`,
     product: `${API_BASE_URL}/products/`,
+    productDetail: (slug: string) => `${API_BASE_URL}/products/${slug}/`,
+    category: `${API_BASE_URL}/products/categories/`,
 };
 
 export default API_BASE_URL;

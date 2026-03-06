@@ -11,6 +11,7 @@ interface Category {
 interface ProductInfoProps {
   name: string;
   category: Category;
+  seller: string;
   price: string;
   final_price: number;
   discount_price: string | null;
@@ -29,6 +30,7 @@ interface ProductInfoProps {
 export default function ProductInfo({
   name,
   category,
+  seller,
   price,
   final_price,
   discount_price,
@@ -95,10 +97,10 @@ export default function ProductInfo({
       {/* Seller Info */}
       <div className="bg-gray-50 rounded-lg p-4 flex items-center gap-3">
         <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
-          <span className="text-green-600 font-semibold text-lg">GV</span>
+          <span className="text-green-600 font-semibold text-lg">{seller.charAt(0)}</span>
         </div>
         <div>
-          <p className="font-semibold text-gray-900">Green Valley Farm</p>
+          <p className="font-semibold text-gray-900">{seller}</p>
           <p className="text-sm text-gray-600">
             Food River, Oregon • <span className="text-green-600">Verified Producer</span>
           </p>
