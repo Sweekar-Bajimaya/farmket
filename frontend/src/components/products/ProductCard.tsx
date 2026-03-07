@@ -96,11 +96,11 @@ export default function ProductCard({ product, onAddToCart }: ProductCardProps) 
         <div className="flex items-center justify-between">
           <div>
             <span className="text-2xl font-bold text-green-600">
-              ${product.final_price.toFixed(2)}
+               रु {product.final_price.toFixed(2)}
             </span>
             {product.discount_price && (
               <span className="text-sm text-gray-400 line-through ml-2">
-                ${product.price}
+                 रु {product.price}
               </span>
             )}
           </div>

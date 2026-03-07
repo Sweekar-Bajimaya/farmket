@@ -81,11 +81,11 @@ export default function ProductInfo({
       {/* Price */}
       <div className="flex items-baseline gap-3">
         <span className="text-4xl font-bold text-gray-900">
-          ${final_price.toFixed(2)}
+          रु {final_price.toFixed(2)}
         </span>
         <span className="text-lg text-gray-500">/{unit}</span>
         {discount_price && (
-          <span className="text-xl text-gray-400 line-through">${price}</span>
+          <span className="text-xl text-gray-400 line-through"> रु {price}</span>
         )}
         {discount_percentage > 0 && (
           <span className="text-green-600 font-semibold">
